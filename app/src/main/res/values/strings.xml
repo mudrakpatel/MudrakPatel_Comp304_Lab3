@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MudrakPatel_Comp304_Lab3</string>
+    <string name="headingStringMainActivity">Select excercise to demonstrate:</string>
 </resources>
