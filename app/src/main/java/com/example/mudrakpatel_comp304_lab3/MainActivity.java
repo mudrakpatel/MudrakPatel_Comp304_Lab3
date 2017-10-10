@@ -1,5 +1,6 @@
 package com.example.mudrakpatel_comp304_lab3;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +32,23 @@ public class MainActivity extends AppCompatActivity {
         listViewMainActivity.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long longArgument){
-                Toast.makeText(getApplicationContext(), listViewMainActivity.getItemIdAtPosition(position) + " clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        "EX " + (listViewMainActivity.getItemIdAtPosition(position)+1) +
+                                " LAUNCHING...", Toast.LENGTH_LONG).show();
+                switch(position){
+                    case 0:
+                        startActivity(new Intent(getApplicationContext(), Exercise1Activity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getApplicationContext(), Exercise2Activity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getApplicationContext(), Exercise3Activity.class));
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "UNABLE TO OPEN THE SCREEN!", Toast.LENGTH_SHORT).show();
+                }
+                startActivity(new Intent(getApplicationContext(), Exercise1Activity.class));
             }
         });
     }
