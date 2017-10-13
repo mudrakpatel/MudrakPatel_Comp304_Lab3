@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long longArgument){
                 Toast.makeText(getApplicationContext(),
                         "EX " + (listViewMainActivity.getItemIdAtPosition(position)+1) +
-                                " LAUNCHING...", Toast.LENGTH_LONG).show();
+                                " LAUNCHING...", Toast.LENGTH_SHORT).show();
                 switch(position){
                     case 0:
                         startActivity(new Intent(getApplicationContext(), Exercise1Activity.class));
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         Toast.makeText(getApplicationContext(), "UNABLE TO OPEN THE SCREEN!", Toast.LENGTH_SHORT).show();
                 }
-                startActivity(new Intent(getApplicationContext(), Exercise1Activity.class));
             }
         });
     }

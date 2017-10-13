@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lineThicknessTextViewString"
+        android:textSize="@dimen/textSize20dp"
         android:id="@+id/lineThicknessTextView"/>
 
     <NumberPicker
@@ -17,5 +18,93 @@
         android:id="@+id/numberPickerExercise1Activity"
         android:layout_below="@+id/lineThicknessTextView"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lineColorTextViewString"
+        android:textSize="@dimen/textSize20dp"
+        android:id="@+id/lineColorTextView"
+        android:layout_toRightOf="@+id/lineThicknessTextView"
+        android:layout_marginLeft="@dimen/marginSize10dp"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lineColorRadioGroup"
+        android:layout_toRightOf="@+id/numberPickerExercise1Activity"
+        android:layout_below="@+id/lineColorTextView"
+        android:layout_marginLeft="@dimen/radioGroupMarginLeftExerciseActivity">
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/redRadioButtonString"
+            android:id="@+id/lineColorRedRadioButton"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yellowRadioButtonString"
+            android:id="@+id/lineColorYellowRadioButton"/>
+
+        <android.support.v7.widget.AppCompatRadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cyanRadioButtonString"
+            android:id="@+id/lineColorCyanRadioButton"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/arrowKeysTextView"
+        android:text="@string/arrowKeysTextViewString"
+        android:layout_toRightOf="@+id/lineColorTextView"
+        android:textSize="@dimen/textSize20dp"
+        android:layout_marginLeft="@dimen/marginLeft20dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/upArrowImageView"
+        android:background="@drawable/ic_keyboard_arrow_up_black_24dp"
+        android:layout_below="@+id/arrowKeysTextView"
+        android:layout_toRightOf="@+id/lineColorRadioGroup"
+        android:layout_marginLeft="@dimen/marginLeft75dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rightArrowImageView"
+        android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
+        android:layout_below="@+id/upArrowImageView"
+        android:layout_toRightOf="@+id/leftArrowImageView"
+        android:layout_marginLeft="@dimen/marginLeft35dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leftArrowImageView"
+        android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
+        android:layout_below="@+id/upArrowImageView"
+        android:layout_toRightOf="@+id/lineColorRadioGroup"
+        android:layout_marginLeft="@dimen/marginLeft40dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downArrowImageView"
+        android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+        android:layout_below="@+id/leftArrowImageView"
+        android:layout_toRightOf="@+id/lineColorRadioGroup"
+        android:layout_marginLeft="@dimen/marginLeft75dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clearCanvasButtonExercise1Activity"
+        android:text="@string/clearCanvasString"
+        android:layout_below="@+id/numberPickerExercise1Activity"/>
 
 </RelativeLayout>
