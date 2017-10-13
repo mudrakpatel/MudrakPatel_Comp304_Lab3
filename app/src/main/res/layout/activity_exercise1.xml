@@ -71,7 +71,8 @@
         android:background="@drawable/ic_keyboard_arrow_up_black_24dp"
         android:layout_below="@+id/arrowKeysTextView"
         android:layout_toRightOf="@+id/lineColorRadioGroup"
-        android:layout_marginLeft="@dimen/marginLeft75dp"/>
+        android:layout_marginLeft="@dimen/marginLeft75dp"
+        android:onClick="arrowButtonClicked"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -80,7 +81,8 @@
         android:background="@drawable/ic_keyboard_arrow_right_black_24dp"
         android:layout_below="@+id/upArrowImageView"
         android:layout_toRightOf="@+id/leftArrowImageView"
-        android:layout_marginLeft="@dimen/marginLeft35dp"/>
+        android:layout_marginLeft="@dimen/marginLeft35dp"
+        android:onClick="arrowButtonClicked"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -89,7 +91,8 @@
         android:background="@drawable/ic_keyboard_arrow_left_black_24dp"
         android:layout_below="@+id/upArrowImageView"
         android:layout_toRightOf="@+id/lineColorRadioGroup"
-        android:layout_marginLeft="@dimen/marginLeft40dp"/>
+        android:layout_marginLeft="@dimen/marginLeft40dp"
+        android:onClick="arrowButtonClicked"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -98,7 +101,8 @@
         android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
         android:layout_below="@+id/leftArrowImageView"
         android:layout_toRightOf="@+id/lineColorRadioGroup"
-        android:layout_marginLeft="@dimen/marginLeft75dp"/>
+        android:layout_marginLeft="@dimen/marginLeft75dp"
+        android:onClick="arrowButtonClicked"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -106,5 +110,11 @@
         android:id="@+id/clearCanvasButtonExercise1Activity"
         android:text="@string/clearCanvasString"
         android:layout_below="@+id/numberPickerExercise1Activity"/>
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/drawingImageView"
+        android:layout_below="@+id/clearCanvasButtonExercise1Activity"/>
 
 </RelativeLayout>
