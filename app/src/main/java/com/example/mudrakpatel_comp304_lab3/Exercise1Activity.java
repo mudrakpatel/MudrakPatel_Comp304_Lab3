@@ -6,10 +6,19 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class Exercise1Activity extends AppCompatActivity {
+    //View components
+    RadioGroup lineColorRadioGroup;
+    EditText editTextExercise1Activity;
 
     //Objects required to draw
     private Bitmap bitmap;
@@ -18,10 +27,10 @@ public class Exercise1Activity extends AppCompatActivity {
     //Declare a the ImageView
     private ImageView drawingImageView;
     //Coordinates associated with the line
-    private int startX = 5;
-    private int startY = 5;
-    private int endX = 50;
-    private int endY = 50;
+    private int startX = 10;
+    private int startY = 10;
+    private int endX = 10;
+    private int endY = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +49,19 @@ public class Exercise1Activity extends AppCompatActivity {
 
         //Draw a sample line to test the canvas functionality
         paint = new Paint();
-        paint.setStrokeWidth(10);
+        /*paint.setStrokeWidth(10);
         paint.setColor(Color.BLACK);
-        canvas.drawLine(startX, startY, endX, endY, paint);
+        canvas.drawLine(startX, startY, endX, endY, paint);*/
+        //Set the Line thickness
+        /*paint.setStrokeWidth(getLineThickness());
+        //Set the Line color
+        paint.setColor(getColor());*/
+    }
+    /*
+    * arrowButtonClicked() : void
+    * */
+    public void arrowButtonClicked(View view){
+        //ImageView click event handling left
     }
 
     /*
@@ -50,7 +69,7 @@ public class Exercise1Activity extends AppCompatActivity {
     * */
     public int getColor(){
         //Get a reference to the RadioGroup
-        RadioGroup lineColorRadioGroup = (RadioGroup) findViewById(R.id.lineColorRadioGroup);
+        lineColorRadioGroup = (RadioGroup) findViewById(R.id.lineColorRadioGroup);
         //This variable will hold the integer value of the color
         int colorToReturn = 0;
         if(lineColorRadioGroup.getCheckedRadioButtonId() == R.id.lineColorRedRadioButton){
@@ -62,4 +81,25 @@ public class Exercise1Activity extends AppCompatActivity {
         }
         return colorToReturn;
     }
+    /*
+    * getLineThickness() : int
+    * */
+    public int getLineThickness(){
+        //Get a reference to the NumberPicker
+        editTextExercise1Activity = (EditText) findViewById(R.id.editTextExercise1Activity);
+        return Integer.parseInt(editTextExercise1Activity.getText().toString());
+    }
+    /*
+    * drawLine(Canvas canvas) : void
+    * */
+    public void drawLine(Canvas canvas) {
+        //Set the Line thickness
+        paint.setStrokeWidth(getLineThickness());
+        //Set the Line color
+        paint.setColor(getColor());
+        canvas.drawLine(startX, startY, endX, endY, paint);
+        startX=endX;
+        startY=endY;
+    }
+
 }

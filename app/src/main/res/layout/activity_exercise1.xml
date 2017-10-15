@@ -12,11 +12,13 @@
         android:textSize="@dimen/textSize20dp"
         android:id="@+id/lineThicknessTextView"/>
 
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPickerExercise1Activity"
-        android:layout_below="@+id/lineThicknessTextView"/>
+    <EditText
+        android:layout_width="@dimen/width42dp"
+        android:layout_height="@dimen/height40dp"
+        android:id="@+id/editTextExercise1Activity"
+        android:layout_below="@+id/lineThicknessTextView"
+        android:inputType="number"
+        android:maxLength="4"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lineColorRadioGroup"
-        android:layout_toRightOf="@+id/numberPickerExercise1Activity"
+        android:layout_toRightOf="@+id/editTextExercise1Activity"
         android:layout_below="@+id/lineColorTextView"
         android:layout_marginLeft="@dimen/radioGroupMarginLeftExerciseActivity">
 
@@ -109,7 +111,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/clearCanvasButtonExercise1Activity"
         android:text="@string/clearCanvasString"
-        android:layout_below="@+id/numberPickerExercise1Activity"/>
+        android:layout_below="@+id/editTextExercise1Activity"
+        android:layout_marginTop="@dimen/marginTop50dp"/>
     
     <ImageView
         android:layout_width="wrap_content"
