@@ -6,11 +6,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -27,8 +25,8 @@ public class Exercise1Activity extends AppCompatActivity {
     //Declare a the ImageView
     private ImageView drawingImageView;
     //Coordinates associated with the line
-    private int startX = 10;
-    private int startY = 10;
+    private int startX = 5;
+    private int startY = 0;
     private int endX = 10;
     private int endY = 10;
 
@@ -49,21 +47,60 @@ public class Exercise1Activity extends AppCompatActivity {
 
         //Draw a sample line to test the canvas functionality
         paint = new Paint();
-        /*paint.setStrokeWidth(10);
-        paint.setColor(Color.BLACK);
-        canvas.drawLine(startX, startY, endX, endY, paint);*/
-        //Set the Line thickness
-        /*paint.setStrokeWidth(getLineThickness());
-        //Set the Line color
-        paint.setColor(getColor());*/
     }
     /*
     * arrowButtonClicked() : void
     * */
     public void arrowButtonClicked(View view){
-        //ImageView click event handling left
-    }
-
+        int viewID = view.getId();
+        //Get references to proper view components
+        lineColorRadioGroup = (RadioGroup) findViewById(R.id.lineColorRadioGroup);
+        int radioButtonID = lineColorRadioGroup.getCheckedRadioButtonId();
+        EditText lineThicknessEditText = (EditText) findViewById(R.id.editTextExercise1Activity);
+        //Validate all the input fields
+        if( radioButtonID == 0 || lineThicknessEditText.getText().toString().isEmpty() ||
+                Integer.parseInt(lineThicknessEditText.getText().toString().trim()) == 0){
+            Toast.makeText(getApplicationContext(), "PLEASE SELECT PROPER VALUES", Toast.LENGTH_SHORT).show();
+        } else{
+                switch(viewID){
+                    case R.id.upArrowImageView:
+                        //Handle for up down click
+                        paint.setColor(getColor());
+                        paint.setStrokeWidth(getLineThickness());
+                        canvas.drawLine(startX, startY, endX, endY, paint);
+                        startY = endY;
+                        endY = endY - 5;
+                        break;
+                    case R.id.downArrowImageView:
+                        //Handle for down click
+                        paint.setColor(getColor());
+                        paint.setStrokeWidth(getLineThickness());
+                        canvas.drawLine(startX, startY, endX, endY, paint);
+                        startY = endY;
+                        endY = endY + 5;
+                        break;
+                    case R.id.rightArrowImageView:
+                        //Handle for right click
+                        paint.setColor(getColor());
+                        paint.setStrokeWidth(getLineThickness());
+                        canvas.drawLine(startX, startY, endX, endY, paint);
+                        startX = endX;
+                        endX = endX + 5;
+                        break;
+                    case R.id.leftArrowImageView:
+                        //Handle for left click
+                        paint.setColor(getColor());
+                        paint.setStrokeWidth(getLineThickness());
+                        canvas.drawLine(startX, startY, endX, endY, paint);
+                        startX = endX;
+                        endX = endX - 5;
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "SOME ERROR OCCURRED", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        }
     /*
     * getColor() : int
     * */
@@ -71,13 +108,19 @@ public class Exercise1Activity extends AppCompatActivity {
         //Get a reference to the RadioGroup
         lineColorRadioGroup = (RadioGroup) findViewById(R.id.lineColorRadioGroup);
         //This variable will hold the integer value of the color
-        int colorToReturn = 0;
-        if(lineColorRadioGroup.getCheckedRadioButtonId() == R.id.lineColorRedRadioButton){
-            colorToReturn = Color.RED;
-        } else if(lineColorRadioGroup.getCheckedRadioButtonId() == R.id.lineColorYellowRadioButton){
-            colorToReturn = Color.YELLOW;
-        } else if(lineColorRadioGroup.getCheckedRadioButtonId() == R.id.lineColorCyanRadioButton){
-            colorToReturn = Color.CYAN;
+        int colorToReturn;
+        switch(lineColorRadioGroup.getCheckedRadioButtonId()){
+            case R.id.lineColorRedRadioButton:
+                colorToReturn = Color.RED;
+                break;
+            case R.id.lineColorYellowRadioButton:
+                colorToReturn = Color.YELLOW;
+                break;
+            case R.id.lineColorCyanRadioButton:
+                colorToReturn = Color.CYAN;
+                break;
+            default:
+                return 0;
         }
         return colorToReturn;
     }
@@ -89,17 +132,4 @@ public class Exercise1Activity extends AppCompatActivity {
         editTextExercise1Activity = (EditText) findViewById(R.id.editTextExercise1Activity);
         return Integer.parseInt(editTextExercise1Activity.getText().toString());
     }
-    /*
-    * drawLine(Canvas canvas) : void
-    * */
-    public void drawLine(Canvas canvas) {
-        //Set the Line thickness
-        paint.setStrokeWidth(getLineThickness());
-        //Set the Line color
-        paint.setColor(getColor());
-        canvas.drawLine(startX, startY, endX, endY, paint);
-        startX=endX;
-        startY=endY;
-    }
-
 }
