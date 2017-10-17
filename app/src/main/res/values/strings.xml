@@ -8,4 +8,5 @@
     <string name="cyanRadioButtonString">Cyan</string>
     <string name="arrowKeysTextViewString">Arrow keys</string>
     <string name="clearCanvasString">Clear canvas</string>
+    <string name="saveString">Save</string>
 </resources>

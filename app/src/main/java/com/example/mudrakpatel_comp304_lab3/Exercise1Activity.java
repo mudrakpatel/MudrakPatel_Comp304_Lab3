@@ -4,12 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -131,5 +130,20 @@ public class Exercise1Activity extends AppCompatActivity {
         //Get a reference to the NumberPicker
         editTextExercise1Activity = (EditText) findViewById(R.id.editTextExercise1Activity);
         return Integer.parseInt(editTextExercise1Activity.getText().toString());
+    }
+    /*
+    * clearCanvas() : void
+    * */
+    public void clearCanvas(View view){
+        bitmap = Bitmap.createBitmap((int) getWindowManager().getDefaultDisplay().getWidth(),
+                (int) getWindowManager().getDefaultDisplay().getHeight(), Bitmap.Config.ARGB_8888);
+        canvas = new Canvas(bitmap);
+        drawingImageView = (ImageView) findViewById(R.id.drawingImageView);
+        drawingImageView.setImageBitmap(bitmap);
+        canvas.drawColor(Color.TRANSPARENT);
+        startX = 5;
+        startY = 0;
+        endX = 10;
+        endY = 10;
     }
 }
