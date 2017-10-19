@@ -5,6 +5,18 @@
     android:id="@+id/relativeLayoutExercise2"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewExercise2Activity"/>
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startAndStopButton"
+        android:onClick="toggleStartStop"
+        android:layout_below="@+id/imageViewExercise2Activity"
+        android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>

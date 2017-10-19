@@ -1,13 +1,80 @@
 package com.example.mudrakpatel_comp304_lab3;
 
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 public class Exercise2Activity extends AppCompatActivity {
+    //Declare an AnimationDrawable object
+    AnimationDrawable mframeAnimation = null;
+    Button startAndStopButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise2);
+        //Get a reference to the Button
+        startAndStopButton = (Button) findViewById(R.id.startAndStopButton);
+        startAndStopButton.setText("START");
+    }
+
+    /*
+    * toggleStartStop(View view) : void
+    * */
+    public void toggleStartStop(View view){
+        //Get a reference to the Button
+        startAndStopButton = (Button) findViewById(R.id.startAndStopButton);
+        switch(startAndStopButton.getText().toString()){
+            case "START":
+                startAnimation();
+                startAndStopButton.setText("STOP");
+                break;
+            case "STOP":
+                stopAnimation();
+                startAndStopButton.setText("START");
+                break;
+        }
+    }
+
+    /*
+    * stopAnimation() : void
+    * */
+    private void stopAnimation() {
+        //Stop the animation
+        mframeAnimation.stop();
+    }
+
+    /*
+    * startAnimation() : void
+    * */
+    private void startAnimation(){
+        //Get a reference to the ImageView
+        ImageView imageViewExercise2Activity = (ImageView) findViewById(R.id.imageViewExercise2Activity);
+        //Declare BitmapDrawables for animation frames
+        BitmapDrawable frame1 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame1),
+                        frame2 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame2),
+                        frame3 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame3),
+                        frame4 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame4);
+        //Animation duration
+        int animationDuration = 250;
+        // Get the background, which has been compiled to an AnimationDrawable object
+        mframeAnimation = new AnimationDrawable();
+        //code to loop through the frames continuously
+        mframeAnimation.setOneShot(false);
+        //Add all frames to the AnimationDrawable object and set the duration
+        mframeAnimation.addFrame(frame1, animationDuration);
+        mframeAnimation.addFrame(frame2, animationDuration);
+        mframeAnimation.addFrame(frame3, animationDuration);
+        mframeAnimation.addFrame(frame4, animationDuration);
+        //Set the background of the ImageView
+        imageViewExercise2Activity.setBackgroundDrawable(mframeAnimation);
+        //Make the animation visible
+        mframeAnimation.setVisible(true, true);
+        //Start animation
+        mframeAnimation.start();
     }
 }
