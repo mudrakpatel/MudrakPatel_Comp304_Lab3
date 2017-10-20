@@ -20,6 +20,10 @@ public class Exercise2Activity extends AppCompatActivity {
         //Get a reference to the Button
         startAndStopButton = (Button) findViewById(R.id.startAndStopButton);
         startAndStopButton.setText("START");
+        //Get a reference to the ImageView
+        ImageView imageViewExercise2Activity = (ImageView) findViewById(R.id.imageViewExercise2Activity);
+        //Set an initial image to the ImageView
+        imageViewExercise2Activity.setBackgroundResource(R.drawable.frame1);
     }
 
     /*
@@ -60,11 +64,12 @@ public class Exercise2Activity extends AppCompatActivity {
                         frame3 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame3),
                         frame4 = (BitmapDrawable) getResources().getDrawable(R.drawable.frame4);
         //Animation duration
-        int animationDuration = 250;
+        int animationDuration = 1500;
         // Get the background, which has been compiled to an AnimationDrawable object
         mframeAnimation = new AnimationDrawable();
         //code to loop through the frames continuously
         mframeAnimation.setOneShot(false);
+        mframeAnimation.setEnterFadeDuration(200);
         //Add all frames to the AnimationDrawable object and set the duration
         mframeAnimation.addFrame(frame1, animationDuration);
         mframeAnimation.addFrame(frame2, animationDuration);
@@ -73,7 +78,7 @@ public class Exercise2Activity extends AppCompatActivity {
         //Set the background of the ImageView
         imageViewExercise2Activity.setBackgroundDrawable(mframeAnimation);
         //Make the animation visible
-        mframeAnimation.setVisible(true, true);
+        mframeAnimation.setVisible(true, false);
         //Start animation
         mframeAnimation.start();
     }
