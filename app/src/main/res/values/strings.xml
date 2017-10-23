@@ -9,4 +9,7 @@
     <string name="arrowKeysTextViewString">Arrow keys</string>
     <string name="clearCanvasString">Clear canvas</string>
     <string name="saveString">Save</string>
+    <string name="tween">Tweened Animation Example</string>
+    <string name="toggleString">Toggle</string>
+
 </resources>
